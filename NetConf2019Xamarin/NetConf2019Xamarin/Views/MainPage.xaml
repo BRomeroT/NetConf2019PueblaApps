@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:vm="clr-namespace:NetConf2019.Core.ViewModels"
+             xmlns:cv="clr-namespace:NetConf2019Xamarin.CV"
+             x:Class="NetConf2019Xamarin.MainPage">
+
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Text="Login" TextColor="Green" FontSize="Title" VerticalOptions="End" HorizontalOptions="Center"/>
+        <StackLayout Grid.Row="1" VerticalOptions="Center" Margin="20">
+            <Entry Text="{Binding Usuario}" Placeholder="Usuario"/>
+            <Entry Text="{Binding Password}" Placeholder="Contraseña" IsPassword="True"/>
+            <Label Text="{Binding Mensaje}" TextColor="Red"/>
+        </StackLayout>
+        <Button Command="{Binding IniciarSesionCommand}" Grid.Row="2" Text="Entrar" VerticalOptions="Start" HorizontalOptions="Center"/>
+        <!--<cv:MyButtonView Texto="Entrar" Command="{Binding IniciarSesionCommand}" ColorFondo="Green" Grid.Row="2" VerticalOptions="Start" HorizontalOptions="Center"/>-->
+    </Grid>
+
+</ContentPage>
